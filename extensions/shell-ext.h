@@ -15,7 +15,8 @@ struct SeafileMenuItem {
 };
 
 class ShellExt : public IContextMenu3,
-                         IShellExtInit
+                 IShellIconOverlayIdentifier,
+                 IShellExtInit
 {
 protected:
     ULONG                           m_cRef;
@@ -49,6 +50,11 @@ public:
 
     // IContextMenu3 members
     STDMETHODIMP    HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT *pResult);
+
+    // IShellIconOverlayIdentifier members
+    STDMETHODIMP    GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
+    STDMETHODIMP    GetPriority(int *pPriority);
+    STDMETHODIMP    IsMemberOf(LPCWSTR pwszPath, DWORD dwAttrib);
 
      // IShellExtInit methods
     STDMETHODIMP    Initialize(LPCITEMIDLIST pIDFolder, LPDATAOBJECT pDataObj, HKEY hKeyID);

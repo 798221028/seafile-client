@@ -27,6 +27,7 @@ SET(ext_sources
   shell-ext.cpp
   class-factory.cpp
   context-menu.cpp
+  icon-overlay.cpp
   log.cpp
   applet-connection.cpp
   commands.cpp
